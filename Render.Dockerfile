@@ -8,7 +8,6 @@ COPY . ./
 
 RUN apt-get update
 RUN apt-get install -y build-essential
-RUN git submodule update --init
 RUN yarn install
 RUN yarn build
 RUN rm -rf .git
@@ -30,4 +29,4 @@ COPY . ./
 
 ENV NODE_ENV=production
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["npm", "run", "migrateandstart"]
+CMD ["npm", "run", "flymigrateandstart"]
